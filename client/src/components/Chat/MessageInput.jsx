@@ -78,7 +78,7 @@ const MessageInput = () => {
   }, []);
 
   return (
-    <div className="flex gap-2 items-center p-2 fixed bottom-0 left-0 w-full bg-white">
+    <div className="flex gap-2 items-center p-2 fixed bottom-0 left-0 w-full bg-transparent">
       {receiver || isSearching ? (
         <button
           className="font-medium text-lg min-w-fit w-1/12 p-2 border border-gray-300 rounded-md bg-red-500 text-white hover:bg-red-600"
@@ -95,26 +95,26 @@ const MessageInput = () => {
           New
         </button>
       )}
-      <div className="border border-gray-300 px-1 flex-1 flex gap-2 rounded-md items-center">
-      <input
-        type="text"
-        placeholder="Type your message..."
-        className="text-lg p-2 flex-1"
-        onChange={(e) => {
-          setMessage(e.target.value);
-          typingHandle(e);
-        }}
-        value={message}
-        onKeyDown={(e) => handleKeyPress(e)}
-        disabled={!receiver}
-      />
-      <button
-        className="font-medium text-lg w-10 h-10  p-2 border border-gray-300 rounded-md bg-green-500 text-white hover:bg-green-600 disabled:bg-gray-300"
-        onClick={sendMessage}
-        disabled={!receiver || isSending}
-      >
-        <img src="/assets/icons/send.svg" alt="" />
-      </button>
+      <div className="border border-gray-300 bg-gray-100 px-1 flex-1 flex gap-2 rounded-md items-center">
+        <input
+          type="text"
+          placeholder="Type your message..."
+          className="text-lg p-2 flex-1 outline-none bg-white"
+          onChange={(e) => {
+            setMessage(e.target.value);
+            typingHandle(e);
+          }}
+          value={message}
+          onKeyDown={(e) => handleKeyPress(e)}
+          disabled={!receiver}
+        />
+        <button
+          className="font-medium text-lg w-10 h-10  p-2 border border-gray-300 rounded-md bg-green-500 text-white hover:bg-green-600 disabled:bg-gray-300"
+          onClick={sendMessage}
+          disabled={!receiver || isSending}
+        >
+          <img src="/assets/icons/send.svg" alt="" />
+        </button>
       </div>
     </div>
   );

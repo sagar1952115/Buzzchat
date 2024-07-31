@@ -17,7 +17,7 @@ const HomeDesktop = ({ setIsTermsModal,navigateToChat }) => {
           />
         </div>
 
-        <div className='flex flex-col gap-5 px-10'>
+        <div className='flex flex-col gap-5 lg:px-10'>
           <div>
             BuzzTalk is a fantastic platform to connect with new friends. When
             you use BuzzTalk, we randomly pair you with someone for a one-on-one

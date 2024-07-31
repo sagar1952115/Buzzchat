@@ -63,8 +63,8 @@ const Messages = () => {
 
             {receiver && <p className='mb-4 text-gray-600'>You’re now chatting with a random stranger.</p>}
             {messages.map((message, index) => (
-                <div key={index} className={message?.stranger ? "flex mb-4" : "flex flex-row-reverse mb-4"}>
-                    <div className={`p-2 rounded-md ${message?.stranger ? "bg-red-200" : "bg-blue-200"}`}>
+                <div key={index} className={message?.stranger ? "flex mb-2 w-full" : "flex flex-row-reverse mb-4 w-full"}>
+                    <div className={`p-2 rounded-md max-w-[80%] lg:max-w-[50%]   w-max break-all ${message?.stranger ? "bg-red-200" : "bg-blue-200"}`}>
                         <p className={`font-bold ${message?.stranger ? "text-red-600" : "text-blue-600"}`}>
                             {message?.stranger ? "Stranger :" : "You :"}
                         </p>

@@ -23,7 +23,7 @@ const Header = () => {
         <div className=" top-0 flex justify-between w-full p-4 ">
            <div className='font-extrabold tracking-wider text-4xl text-blue-500 '>BuzzTalk</div>
 
-            <div className="headerRight">
+            <div className="">
                 {/* <ButtonsGroup>
                     <Button style={{ background: "#4A549A" }}><FaFacebookF />
                         Share</Button>
