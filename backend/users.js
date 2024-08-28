@@ -1,9 +1,12 @@
+const { ConnectionStates } = require("mongoose");
+
 let onlineUsers = [];
 let unpairedUsers = [];
+// Use Reddis
 
 const addUser = (userId, socketId) => {
-    const existingUser = onlineUsers.find(user => user.userId === userId)
-    const existingUser_ = onlineUsers.find(user => user.socketId === socketId)
+    const existingUser = onlineUsers.find(user => user.userId == userId)
+    const existingUser_ = onlineUsers.find(user => user.socketId == socketId)
 
     if (existingUser) {
         return { error: "Userid is taken" }
@@ -31,16 +34,20 @@ const addUnpairedUser = (userId) => {
 }
 
 const removeUser = (socketId) => {
+    console.log(onlineUsers)
     const allOnlineUsers = [...onlineUsers]
-    const filteredOnlineUsers = onlineUsers.filter(user => user.socketId !== socketId)
+
+    console.log(allOnlineUsers)
+    console.log("this is my socket id ",socketId)
+    const filteredOnlineUsers = onlineUsers.filter(user => user.socketId != socketId)
 
     onlineUsers = filteredOnlineUsers
 
-    return allOnlineUsers.find((user) => user.socketId === socketId)
+    return allOnlineUsers.find((user) => user.socketId == socketId)
 }
 
 const removeUnpairedUser = (userId) => {
-    const filteredUnpairedUsers = unpairedUsers.filter((user) => user !== userId)
+    const filteredUnpairedUsers = unpairedUsers.filter((user) => user != userId)
 
     unpairedUsers = filteredUnpairedUsers
 }

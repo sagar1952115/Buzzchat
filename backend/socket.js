@@ -83,7 +83,9 @@ module.exports = function (server) {
 
         socket.on("disconnect", () => {
             // remove user from online users list
+            console.log(socket.id)
             const user = removeUser(socket.id)
+            console.log(user)
             removeUnpairedUser(user.userId)
             const onlineUsers = getUsers()
             // reset online users list

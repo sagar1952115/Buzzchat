@@ -2,6 +2,7 @@ const express = require("express")
 const cors = require("cors")
 const { createServer } = require("http")
 const socketSetup = require("./socket"); // Import the socket setup
+const cron = require("node-cron");
 require("dotenv").config()
 
 const app = express()
@@ -26,4 +27,12 @@ server.listen(port, () => {
     console.log(`Server run on port http://localhost:${port}`)
 })
 
+
+
 socketSetup(server)
+
+cron.schedule('*/5 * * * * *', () => {
+    const http = require('http');
+    console.log("hello")
+    http.get(`http://localhost:${port}`);
+});
