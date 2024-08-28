@@ -20,7 +20,7 @@ const Header = () => {
     }, [onlineUsers]);
 
     return (
-        <div className=" top-0 flex justify-between w-full p-4 ">
+        <div className="flex   justify-between w-full p-4 ">
            <div className='font-extrabold tracking-wider text-4xl text-blue-500 '>BuzzTalk</div>
 
             <div className="">
@@ -46,73 +46,3 @@ const Header = () => {
 }
 
 export default Header
-
-const HeaderContainer = styled.div({
-    padding: "10px 30px",
-    background: "white",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center"
-})
-
-const LogoWrapper = styled.div({
-    display: "flex",
-    alignItems: "center",
-    gap: "50px"
-})
-
-const Image = styled.img({
-    height: "50px"
-})
-
-const HeaderText = styled.p({
-    fontSize: "27px",
-    fontWeight: "700",
-    rotate: "-4deg"
-})
-
-const HeaderRight = styled.div({
-    flexDirection: "column",
-    alignItems: "end"
-})
-
-const ButtonsGroup = styled.div({
-    display: "flex",
-    gap: "10px"
-})
-
-const Button = styled.button({
-    fontSize: "10px",
-    color: "white",
-    background: "#4A549A",
-    border: "none",
-    borderRadius: "2px",
-    display: "flex",
-    gap: "5px",
-    alignItems: "center"
-})
-
-const SelectButton = styled.button({
-    padding: "2px 10px",
-    border: "1px solid gray",
-    borderRadius: "2px",
-    display: "flex",
-    alignItems: "center",
-    gap: "5px"
-})
-
-const LiveUsersWrapper = styled.div({
-    marginTop: "5px",
-    display: 'flex',
-    gap: "5px",
-    alignItems: "center"
-})
-
-const LiveUsersNumber = styled.p({
-    fontSize: "25px",
-    color: "#9DB2D7"
-})
-
-const LiveUsersText = styled.p({
-    color: "#b6d1f0"
-})

@@ -2,9 +2,10 @@ import { useEffect } from 'react';
 import { io } from 'socket.io-client';
 import { v4 as uuidv4 } from 'uuid';
 import { useChat } from './contextApi/ChatContext';
-// import beepSound from "./assets/ping-82822.mp3"
+import beepSound from "./assets/ping-82822.mp3"
 
 const URL = "https://buzzchat-43d7.onrender.com"
+// const URL="http://localhost:5000"
 
 export const socket = io(URL, {
     autoConnect: false,
@@ -41,6 +42,8 @@ const Socket = () => {
         };
     }, [setIsConnected]);
 
+    // socket.broadcast
+
     useEffect(() => {
         const uniqueId = uuidv4();
         setUserId(uniqueId)
@@ -51,10 +54,12 @@ const Socket = () => {
         });
 
         socket.on("get-online-users", (users) => {
+            console.log(users)
             setOnlineUsers(users);
         });
 
         socket.on("send-message", (message) => {
+            console.log(message)
             setMessages((previous) => [
                 ...previous,
                 { stranger: message },
@@ -65,15 +70,15 @@ const Socket = () => {
         socket.on("receive-message", (message) => {
             setMessages((previous) => [
                 ...previous,
-                { you: message },
+                { you:message },
             ]);
             setIsSending(false)
         });
 
         socket.on("user-paired", (receiver) => {
             setReceiver(receiver)
-            // const audio = new Audio(beepSound);
-            // audio.play();
+            const audio = new Audio(beepSound);
+            audio.play();
             setIsSearching(false)
         })
 

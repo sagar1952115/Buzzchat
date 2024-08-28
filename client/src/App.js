@@ -7,7 +7,7 @@ import Socket from './Socket';
 
 function App() {
   return (
-    <>
+    <div className='max-w-[1400px] h-screen flex flex-col mx-auto'>
       <Socket />
       <Header />
       <BrowserRouter>
@@ -16,7 +16,7 @@ function App() {
           <Route path="/chat" element={<Chat />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 
